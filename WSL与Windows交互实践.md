@@ -16,7 +16,7 @@
 
    	在Windows功能中启用```适用于Linux的Windows子系统```，然后在Windows CMD中直接输入```bash```，即可进入Linux环境，执行命令：
 
-![018040500](img\20180405001.png)
+![018040500](img/20180405001.png)
 
 ## 2. WSL新特性
 
@@ -25,7 +25,7 @@
 以前的 ```bash -c [command]```直接用 ```wsl [command]```来替代。
 
 另一个特性是：Windows 10商店里，可以下载安装其他Linux发行版。这样就可以自由选择，不用限制到Ubuntu。
-![018040500](img\20180428001.png)
+![018040500](img/20180428001.PNG)
 
 然后可以在程序列表中直接打开Ubuntu进入，或在CMD或Powershell中直接输入ubuntu进入：
 

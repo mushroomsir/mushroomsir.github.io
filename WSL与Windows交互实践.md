@@ -72,7 +72,7 @@ Ubuntu (默认)
 Legacy
 ```
 
-在Windows 1803 后，还支持更多配置。比如网络，root目录等。进入发行版后， 可以在```/etc/wsl.conf```中配置。 如果没有该文件，可以手动创建一个配置:
+在Windows 1803 后，还支持更多配置。比如网络，root目录等。进入发行版后， 可以在```/etc/wsl.conf```中配置。 如果没有该文件，可以手动创建一个配置：
 
 ```powershell
 [automount]
@@ -114,11 +114,11 @@ The program 'docker' is currently not installed. You can install it by typing:
 apt-get install docker
 ```
 
-比如同事在mac上写了个```docker build```的脚本，放到Windows上后 想使用WSL去执行，发现必须加后缀才行，这样脚本就没办法统一了
+比如同事在mac上写了个```docker build```的脚本，放到Windows上后 想使用WSL去执行，发现必须加后缀才行，这样脚本就没办法统一了。
 
 ## 5. 解决方案
 
-当然也可以在中装个docker，而不是使用宿主机上的docker。但这样会很冗余，而且性能不好。经过一番折腾找到几种解决方案：
+当然也可以在中装个docker，而不是使用宿主机上的docker。但这样会很冗余，而且性能不好，经过一番折腾找到几种解决方案：
 
 ### 5.1 使用别名
 
@@ -133,11 +133,11 @@ alias docker-compose=docker-compose.exe
 
 ### 5.2 多复制一份
 
-在宿主机上找到 docker.exe，然后复制一份重命名为 docker 放到同级目录. 这样在wsl中也是可以执行的. 有点蠢萌黑魔法的感觉.
+在宿主机上找到 docker.exe，然后复制一份重命名为 docker 放到同级目录，这样在wsl中也是可以执行的，有点蠢萌黑魔法的感觉。
 
 ### 5.3 重定向
 
-思路是定义```command_not_found_handle```函数(bash 4.0+ 支持)，当任何命令找不到时，都会调用调用它.  然后在该函数中尝试调用宿主机上cmd.exe，由它来来执行命令，并返回结果.
+思路是定义```command_not_found_handle```函数(bash 4.0+ 支持)，当任何命令找不到时，都会调用调用它，然后在该函数中尝试调用宿主机上cmd.exe，由它来来执行命令，并返回结果。
 
 在.bashrc中添加:
 
@@ -186,7 +186,7 @@ ln -sf /mnt/c/Program\ Files/Docker/Docker/resources/bin/docker.exe /usr/bin/doc
 
 差不多有2年左右，没写博客了。主要是因为从C#/Net，转向Golang相关的技术栈了，需要重新积累和学习下。前期写了段时间c++，然后写Golang，发现Golang写着舒服多了。当然跟有了女朋友后，变懒也有很大关系。
 
-这篇是开头，希望自己能继续坚持分享，也更有利于自己成长。新博客也会同步到github一份，方便记录修改。
+这篇是开头，希望自己能继续坚持分享，也更有利于自己成长。新博客也会同步到github一份，方便备份及修改。
 
 
 ### 6.2 参考

@@ -306,7 +306,7 @@ const (
 case OSTRARRAYBYTE:
 		a := nodnil()   //默认数组为空
 		if n.Esc == EscNone {
-			// 在堆上为slice创建临时数组
+			// 在栈上为slice创建临时数组
 			t := types.NewArray(types.Types[TUINT8], tmpstringbufsize)
 			a = nod(OADDR, temp(t), nil)
 		}

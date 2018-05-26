@@ -82,7 +82,7 @@ func (tcp *TCPHeader) String() string {
 	if tcp == nil {
 		return "<nil>"
 	}
-	return fmt.Sprintf("Source=%v Destination=%v SeqNum=%v AckNum=%v DataOffset=%v Reserved=%v ECN=%v Ctrl=%v Window=%v Checksum=%v Urgent=%v Options=%v", tcp.Source, tcp.Destination, tcp.SeqNum, tcp.AckNum, tcp.DataOffset, tcp.Reserved, tcp.ECN, tcp.Ctrl, tcp.Window, tcp.Checksum, tcp.Options)
+	return fmt.Sprintf("Source=%v Destination=%v SeqNum=%v AckNum=%v DataOffset=%v Reserved=%v ECN=%v Ctrl=%v Window=%v Checksum=%v Urgent=%v", tcp.Source, tcp.Destination, tcp.SeqNum, tcp.AckNum, tcp.DataOffset, tcp.Reserved, tcp.ECN, tcp.Ctrl, tcp.Window, tcp.Checksum,tcp.Urgent)
 }
 
 func (tcp *TCPHeader) Marshal() []byte {

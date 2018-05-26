@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fd, _ := syscall.Socket(syscall.AF_INET, syscall.SOCK_RAW, 1)
+	fd, _ := syscall.Socket(syscall.AF_INET, syscall.SOCK_RAW, syscall.IPPROTO_TCP)
 	f := os.NewFile(uintptr(fd), fmt.Sprintf("fd %d", fd))
 	for {
 		buf := make([]byte, 1500)

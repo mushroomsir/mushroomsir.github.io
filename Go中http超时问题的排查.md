@@ -19,12 +19,12 @@
 
 问题1： A服务使用 http1.1 发送请求到 B 服务超时。
 
-问题2:    A服务使用一个轻量级http-sdk(内部http2.0) 发送请求到 C 服务超时。
+问题2:  A服务使用一个轻量级 http-sdk(内部http2.0) 发送请求到 C 服务超时。
 
-Golang给出的报错信息时：
+Golang 给出的报错信息时：
 
 ```none
-Post http://host/v1/xxxx: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+Post http://host/v1/xxxx: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
 ```
 
 通知日志追踪ID来排查，发现有的请求还没到服务方就已经超时。

@@ -1,10 +1,15 @@
 
 
-
+* [1. 产生原因](#%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0)
+* [2. 导致问题](#%E5%AF%BC%E8%87%B4%E9%97%AE%E9%A2%98)
+* [3. Nginx](#nginx)
+   * [3.1 长连接](#%E9%95%BF%E8%BF%9E%E6%8E%A5)
+ * [4. 解决方案](#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+* [5 .参考](#%E5%8F%82%E8%80%83)
 
 ## 产生原因
 
-<img src="D:\03-go\go\src\github.com\mushroomsir\blog\img\tcp-close.png" alt="image" style="zoom: 50%;" />
+<img src="./img/tcp-close.png" alt="image" style="zoom: 50%;" />
 
 TCP 连接关闭时，会有 4 次通讯（四次挥手），来确认双方都停止收发数据了。如上图，主动关闭方，最后发送 ACK 时，会进入 TIME_WAIT 状态，要等 2MSL 时间后，这条连接才真正消失。
 

@@ -52,7 +52,7 @@ MSL 时间，是从 C 回复 ACK 后开始 TIME_WAIT 计时，如果这期间收
 
 Nginx 默认配置连接到后端是 HTTP/1.0 不支持 HTTP keep-alive，所以每次后端应用都会主动关闭连接，这样后端出现 TIME_WAIT，而 Nginx 不会出现。
 
-后端出现大量的 TIME_WAIT 一般问题不明显，但也需要注意几个地方
+后端出现大量的 TIME_WAIT 一般问题不明显，有个需要注意的点是：
 
 查看服务器上`/var/log/messages` 有没有 `TCP: time wait bucket table overflow` 的日志，有的话是超出最大 TIME_WAIT 的数量了，超出后系统会把多余的 TIME_WAIT 删除掉，会导致前面章节介绍的 2 种情况。
 
@@ -65,7 +65,7 @@ Nginx 默认配置连接到后端是 HTTP/1.0 不支持 HTTP keep-alive，所以
 ```nginx
 http{
     upstream www{
-        keepalive 500;  # 与后端最多保持的长连接数量
+        keepalive 500;  # 保持和后端的最大空闲连接数量
     }
     proxy_set_header X-Real-IP $remote_addr; ## 不会生效
     server {
